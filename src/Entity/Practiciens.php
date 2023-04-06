@@ -48,6 +48,7 @@ class Practiciens
     #[ORM\ManyToOne(inversedBy: 'practiciens')]
     private ?User $user = null;
 
+
     public function __construct()
     {
         $this->visites = new ArrayCollection();
@@ -195,4 +196,6 @@ class Practiciens
 
         return $this;
     }
+
+
 }

@@ -30,9 +30,13 @@ class Visite
     #[ORM\OneToMany(mappedBy: 'visite', targetEntity: User::class)]
     private Collection $User;
 
+    #[ORM\OneToMany(mappedBy: 'visite', targetEntity: User::class)]
+    private Collection $users;
+
     public function __construct()
     {
         $this->User = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -104,5 +108,13 @@ class Visite
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
     }
 }
